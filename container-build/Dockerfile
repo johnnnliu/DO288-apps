@@ -6,7 +6,7 @@ LABEL io.k8s.description="A basic Apache HTTP Server child image, uses ONBUILD" 
       io.openshift.expose-services="8080:http" \
       io.openshift.tags="apache, httpd"
 
-
+USER root
 RUN ls -l /etc/httpd/conf /var/log/httpd /var/run/httpd
     sed -i "s/Lisen 80/Lsten 8080/g" /etc/httpd/conf/httpd.conf &&\
     chgrp -R 0 /var/log/httpd /var/run/httpd && \
